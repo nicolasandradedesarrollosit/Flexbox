@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+    <title>Flexbox Diario</title>
+</head>
+<!-- Crear la portada de un diario (página principal) tratando de no copiar ningún diario en particular sino armar un diseño propio de portada utilizando FlexBox como principal herramienta para la creación de un Responsive Design siguiendo el concepto de Mobile First. La portada debe contener el nombre del diario, fecha, noticias principales con imágenes, título, breve descripción y link a la noticia, noticias secundarias con o sin imagen y sólo el título y link a la noticia, un menú de navegación a las diferentes secciones del diario y publicidades. No es necesario que los links de las noticias, publicidades ni menú de navegación lleven a ninguna parte, sólo es necesario que la portada esté completa, funcional y se visualice correctamente en cualquier dispositivo. El menú principal debe ser una barra horizontal con links cuando se visualiza desde una pc de escritorio, pero al mirar la web desde un celular la barra horizontal debe desaparecer y sólo mostrarse el ícono de “hamburguesa” ☰ (no es necesario que se le haga click por ahora dado que eso se resuelve con JavaScript).
+
+El layout del diario deberá cumplir con el siguiente formato de Layout Design .Proponemos buscar una nueva noticia en inglés o español, pero debemos prestar atención al contenido HTML, al estilo y debe tener un diseño responsivo. La problemática de esta semana consiste en crear un nuevo documento HTML incluyendo el estilo CSS para lograr que al visualizar la página se vea idéntica al diario original en sus diferentes tamaños utilizando media queries.
+
+Los pasos a seguir son: 
+
+Crear una carpeta nueva, donde se trabajará el portal de noticias.
+Utilizar Git Init para iniciar Git.
+Crear un repositorio nuevo en GitHub y utilizar Git Remote Add para vincularlo.
+Imaginar una portada de un diario que siga el concepto de Website Layout expuesto por W3School. No está permitido copiar un diario, deben crear un diseño propio.
+Incluir un normalizador de css como reset.css o normalize.css para obtener consistencia en la visualización del sitio en diferentes navegadores.
+Comenzar desarrollando la versión para celulares y aplicar reglas CSS Flexbox para que el mismo contenido se adapte para tablets, monitores y televisores. 
+Crear el contenido de la portada del diario, con varias noticias de diferente relevancia.
+Separar el código CSS en diferentes archivos para poder utilizarlo.
+Hacer commits con el progreso y subir el código al nuevo repositorio creado en el paso 3.
+Habilitar Github Pages para poder visualizar la portada online desde la página de Github.
+Crear un documento Readme que incluya el link de Github Pages para visualizar el resultado.
+Enviar el link de Github Pages de este repositorio como respuesta a la problemática semanal. -->
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="" srcset="">
+                <h1>Flexbox News</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Noticias</a></li>
+                <li><a href="#">Opinión</a></li>
+                <li><a href="#">Deportes</a></li>
+                <li><a href="#">Cultura</a></li>
+            </ul>
+            <div class="menu-icon">
+                <span>&#9776;</span>    
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main>
+            <h1>
+                Rosario lanza plan piloto de movilidad sostenible con bicicletas eléctricas gratuitas en el centro
+            </h1>
+            <p>
+                Rosario, 4 de junio de 2025 — En una iniciativa inédita en el país, la Municipalidad de Rosario puso en marcha este martes un plan piloto de movilidad urbana sostenible que incluye la implementación de 200 bicicletas eléctricas de uso gratuito en el microcentro de la ciudad. El programa, denominado "EcoMovi Rosario", busca reducir la congestión vehicular y las emisiones contaminantes en las zonas de mayor tránsito, especialmente en horarios pico.
+
+                Las bicicletas, distribuidas en 15 estaciones automatizadas entre las calles Córdoba, San Lorenzo y Bv. Oroño, estarán disponibles de lunes a viernes de 7 a 20 h, y podrán ser utilizadas por cualquier ciudadano mayor de 18 años que se registre previamente en la aplicación oficial del sistema. Cada viaje tendrá un límite de 30 minutos, con posibilidad de renovación luego de una pausa de 15 minutos.
+
+                Según indicó la secretaria de Movilidad, Lucía Paredes, “Rosario viene apostando desde hace años a un cambio en la cultura del transporte urbano, y este proyecto busca consolidar esa transformación con una herramienta accesible, moderna y ecológica”.
+
+                El plan piloto se extenderá por tres meses, y será evaluado en conjunto con la Universidad Nacional de Rosario, que realizará un seguimiento del uso, el impacto ambiental y la percepción ciudadana. Si los resultados son positivos, se prevé extender el sistema a otros barrios y sumar estaciones cerca de universidades, hospitales y centros comerciales.
+
+                Vecinos y comerciantes de la zona recibieron la medida con entusiasmo, aunque también manifestaron inquietudes sobre la seguridad de los vehículos y la necesidad de reforzar la infraestructura ciclista. Desde la municipalidad aseguran que ya se está trabajando en la ampliación de bicisendas y en un plan de mantenimiento diario.
+
+                Este paso posiciona a Rosario como una de las ciudades líderes en políticas de transporte sustentable a nivel nacional.
+            </p>
+            <h1>
+                Campaña educativa para una movilidad segura e inclusiva.
+            </h1>
+            <p>
+                La iniciativa también contempla una ambiciosa campaña educativa sobre seguridad vial y convivencia en el espacio público, con el objetivo de acompañar el plan de bicicletas eléctricas desde una dimensión cultural y formativa. La propuesta incluirá charlas en escuelas primarias y secundarias, donde se abordarán temas como el respeto por las normas de tránsito, el uso del casco y la importancia de la empatía en la vía pública. Además, se distribuirá material gráfico y audiovisual a través de redes sociales, orientado tanto a ciclistas como a automovilistas y peatones, con mensajes claros sobre la necesidad de compartir el espacio urbano de manera responsable. Por otro lado, se organizarán talleres abiertos en parques y plazas, con actividades lúdicas, simulaciones de situaciones reales y capacitaciones prácticas. De este modo, se busca no solo fomentar el uso del transporte sustentable como alternativa eficiente, sino también promover una cultura de respeto mutuo y cuidado colectivo entre todos los actores del ecosistema vial.
+            </p>
+            <h1>
+                Alianza público-privada para fortalecer la infraestructura
+            </h1>
+            <p>
+                Como parte del plan integral, la Municipalidad de Rosario anunció también una alianza estratégica con empresas locales de tecnología y movilidad para fortalecer la infraestructura necesaria del proyecto. Esta colaboración incluye la instalación de nuevas estaciones de carga para bicicletas eléctricas, el mantenimiento técnico de los vehículos y el desarrollo de sistemas inteligentes para el monitoreo del uso en tiempo real. Además, se prevé la implementación de sensores de tránsito en las principales ciclovías, lo que permitirá recopilar datos clave sobre los flujos de movilidad y hacer ajustes dinámicos al sistema. Desde el municipio destacaron que esta articulación entre el sector público y privado es fundamental para garantizar la sostenibilidad del proyecto y su proyección a largo plazo. La inversión inicial será cofinanciada, y se espera que en seis meses se pueda duplicar la cantidad de unidades disponibles y extender el servicio a zonas periféricas de la ciudad.
+            </p>
+        </main>
+        <h1 class="titulo-responsive">Otras Noticias</h1>
+        <aside>
+            <h1>Otras Noticias</h1>
+            <ul>
+                <li><a href="#">Rosario estrena bicis eléctricas gratuitas en el centro</a></li>
+                <li><a href="#">Lanzan app municipal para denunciar baches en tiempo real</a></li>
+                <li><a href="#">Récord de turismo local en la costa rosarina este fin de semana</a></li>
+                <li><a href="#">Inauguran nuevo polo gastronómico en Pichincha</a></li>
+                <li><a href="#">Estudiantes de la UNR crean filtro de agua casero y económico</a></li>
+            </ul>
+        </aside>
+    </div>
+</body>
+</html>
