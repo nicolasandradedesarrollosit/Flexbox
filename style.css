@@ -119,14 +119,15 @@ aside ul li:hover{
 }
 form{
     border: 2px solid #a79595;
+    flex-wrap: nowrap;
 }
 .formulario{
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 80%;
     margin: 20px 0px;
 }
-.column{
+.columna{
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -142,15 +143,16 @@ input::placeholder{
     font-size: 15px;
 }
 input[type='submit']{
-    width: 90%;
+    width: 75%;
     background-color:#a9d9ec ;
 }
 .error {
     display: none;
     height: 10vh;
-    width: 20vw;
+    width: 100%;
     position: relative;
     border: 1px solid red;
+    margin:0px 0px 50px 0px;
   }  
 .error-message {
     position: absolute;
