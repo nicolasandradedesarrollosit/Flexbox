@@ -12,7 +12,7 @@ nav {
     align-items: center;
     justify-content: space-evenly;
     width: 100vw;
-    height: 15vh;
+    height: 30vh;
     background-color: aliceblue;
 }
 .logo{
@@ -116,6 +116,47 @@ aside ul li:hover{
     letter-spacing: 1.5px;
     text-align: center;
     border-bottom: 5px solid #ccc;
+}
+form{
+    border: 2px solid #a79595;
+}
+.formulario{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 20px 0px;
+}
+.column{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+input{
+    margin: 20px;
+    padding: 10px 0px 10px 5px;
+    border: 2px solid #000;
+    font-size: 20px;
+}
+input::placeholder{
+    color: #a19c9c;
+    font-size: 15px;
+}
+input[type='submit']{
+    width: 90%;
+    background-color:#a9d9ec ;
+}
+.error {
+    display: none;
+    height: 10vh;
+    width: 20vw;
+    position: relative;
+    border: 1px solid red;
+  }  
+.error-message {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) ;
+    color: red;
 }
 @media (max-width: 620px) {
 nav{
