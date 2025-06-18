@@ -225,6 +225,12 @@ aside h1{
 .titulo-responsive{
     display: block;
 }
+.formulario{
+    flex-direction: column;
+}
+input{
+    width: 31vw;
+}
 }
 @media (max-width: 880px) {
 .logo{
