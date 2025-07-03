@@ -1,123 +1,149 @@
-form = document.getElementById("suscripcion");
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    error = document.getElementById("error");
-    // Debe tener más de 6 letras y al menos un espacio entre medio.
-    const nombre = document.getElementById("nombre").value; 
-    // debe tener un formato de email válido.
-    const email = document.getElementById("email").value;
-    const emailSplit = email.split("@");
-    const dominio = [
-        "gmail.com",
-        "yahoo.com",
-        "hotmail.com",
-        "outlook.com",
-        "aol.com",
-        "protonmail.com",
-        "icloud.com",
-        "zoho.com",
-        "yandex.com",
-        "gmx.com",
-        "mail.com",
-        "live.com"
-      ]
-    // Al menos 8 caracteres, formados por letras y números. 
-    const password = document.getElementById("password").value;
-    const numeros = [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "0"
-    ]
-    // Número de 7 u 8 dígitos.
-    const dni = document.getElementById("dni").value;
-    // Número entero mayor o igual a 18.
-    const edad = document.getElementById("edad").value;
-    // Número de al menos 7 dígitos, no aceptar espacios, guiones ni paréntesis.
-    const telefono = document.getElementById("telefono").value;
-    caracteresInvalidos = [
-        '(',
-        ')',
-        '-',
-    ];
-    // Al menos 5 caracteres, con letras, números y un espacio en el medio.
-    const direccion = document.getElementById("direccion").value;
-    const direccionSplit = [
-        direccion.substring(0, direccion.lastIndexOf(" ")),
-        direccion.substring(direccion.lastIndexOf(" ") + 1)
-    ];
-    var letras = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G',
-  'H', 'I', 'J', 'K', 'L', 'M', 'N',
-  'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T',
-  'U', 'V', 'W', 'X', 'Y', 'Z',
-  'a', 'b', 'c', 'd', 'e', 'f', 'g',
-  'h', 'i', 'j', 'k', 'l', 'm', 'n',
-  'ñ', 'o', 'p', 'q', 'r', 's', 't',
-  'u', 'v', 'w', 'x', 'y', 'z',
-  'Á', 'É', 'Í', 'Ó', 'Ú',
-  'á', 'é', 'í', 'ó', 'ú'];
-    // Al menos 3 caracteres.
-    const ciudad = document.getElementById("ciudad").value;
-    // Al menos 3 caracteres.
-    const postal = document.getElementById("postal").value;
+const form = document.getElementById("suscripcion");
+const nombreInput = document.getElementById("nombre");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+const dniInput = document.getElementById("dni");
+const edadInput = document.getElementById("edad");
+const telefonoInput = document.getElementById("telefono");
+const direccionInput = document.getElementById("direccion");
+const ciudadInput = document.getElementById("ciudad");
+const postalInput = document.getElementById("postal");
+const titulo = document.getElementById("titulo-hola");
 
-    if(nombre.split("").length < 6 || nombre.split(" ").length < 2){
-        error.style.display = 'flex';
-        return;
+document.querySelectorAll("#suscripcion input").forEach(input => {
+    const span = document.createElement("span");
+    span.classList.add("error-text");
+    span.style.color = "red";
+    input.insertAdjacentElement("afterend", span);
+});
+
+function validarNombre() {
+    const nombre = nombreInput.value.trim();
+    if (nombre.length < 6 || nombre.split(" ").length < 2) {
+        setError(nombreInput, "Debe tener al menos 6 letras y un espacio.");
+        return false;
     }
-    else{
-        if(emailSplit.length != 2 || !dominio.includes(emailSplit[1])){
-            error.style.display = 'flex';
-            return;
-        }
-        else{
-            if(password.split("").length < 8 || !numeros.some(num => password.includes(num)) || !letras.some(char => password.includes(char))){
-                error.style.display = 'flex';
-                return;
-            }
-            else{
-                if(dni.split("").length < 7 || dni.split("").length > 8){
-                    error.style.display = 'flex';
-                    return;
-                }
-                else{
-                    if(parseInt(edad)< 18){
-                        error.style.display = 'flex';
-                        return;
-                    }
-                    else{
-                        if(telefono.split(" ").length > 1 || caracteresInvalidos.some(char => telefono.includes(char)) || telefono.split("").length < 7){
-                            error.style.display = 'flex';
-                            return;
-                        }
-                        else{
-                            if(direccion.split("").length < 5 || direccionSplit.length < 2  || numeros.some(char => direccionSplit[0].includes(char)) || letras.some(char => direccionSplit[1].includes(char))){
-                                error.style.display = 'flex';
-                                return;
-                            }
-                            else{
-                                if(ciudad.split("").length < 3){
-                                    error.style.display = 'flex';
-                                    return;
-                                }
-                                else{
-                                    if(postal.split("").length < 3){
-                                        error.style.display = 'flex';
-                                        return;
-                                    }
-                                    form.submit()                                    
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    return true;
+}
+
+function validarEmail() {
+    const email = emailInput.value.trim();
+    const dominio = ["gmail.com","yahoo.com","hotmail.com","outlook.com","aol.com","protonmail.com","icloud.com","zoho.com","yandex.com","gmx.com","mail.com","live.com"];
+    const parts = email.split("@");
+    if (parts.length != 2 || !dominio.includes(parts[1])) {
+        setError(emailInput, "Formato de email no válido.");
+        return false;
     }
-})
+    return true;
+}
+
+function validarPassword() {
+    const pass = passwordInput.value.trim();
+    const numeros = /[0-9]/;
+    const letras = /[a-zA-ZáéíóúÁÉÍÓÚñÑ]/;
+    if (pass.length < 8 || !numeros.test(pass) || !letras.test(pass)) {
+        setError(passwordInput, "Debe tener al menos 8 caracteres con letras y números.");
+        return false;
+    }
+    return true;
+}
+
+function validarDNI() {
+    const dni = dniInput.value.trim();
+    if (dni.length < 7 || dni.length > 8) {
+        setError(dniInput, "DNI debe tener 7 u 8 dígitos.");
+        return false;
+    }
+    return true;
+}
+
+function validarEdad() {
+    if (parseInt(edadInput.value) < 18) {
+        setError(edadInput, "Debe ser mayor o igual a 18.");
+        return false;
+    }
+    return true;
+}
+
+function validarTelefono() {
+    const tel = telefonoInput.value.trim();
+    if (tel.length < 7 || /[\s()-]/.test(tel)) {
+        setError(telefonoInput, "Teléfono sin espacios, guiones ni paréntesis y al menos 7 dígitos.");
+        return false;
+    }
+    return true;
+}
+
+function validarDireccion() {
+    const dir = direccionInput.value.trim();
+    const parts = dir.split(" ");
+    if (dir.length < 5 || parts.length < 2) {
+        setError(direccionInput, "Debe tener al menos 5 caracteres y un espacio.");
+        return false;
+    }
+    return true;
+}
+
+function validarCiudad() {
+    if (ciudadInput.value.trim().length < 3) {
+        setError(ciudadInput, "Al menos 3 caracteres.");
+        return false;
+    }
+    return true;
+}
+
+function validarPostal() {
+    if (postalInput.value.trim().length < 3) {
+        setError(postalInput, "Al menos 3 caracteres.");
+        return false;
+    }
+    return true;
+}
+
+function setError(input, mensaje) {
+    input.nextElementSibling.textContent = mensaje;
+}
+
+function clearError(input) {
+    input.nextElementSibling.textContent = "";
+}
+
+[nombreInput, emailInput, passwordInput, dniInput, edadInput, telefonoInput, direccionInput, ciudadInput, postalInput].forEach(input => {
+    input.addEventListener("blur", () => {
+        switch(input.id) {
+            case "nombre": validarNombre(); break;
+            case "email": validarEmail(); break;
+            case "password": validarPassword(); break;
+            case "dni": validarDNI(); break;
+            case "edad": validarEdad(); break;
+            case "telefono": validarTelefono(); break;
+            case "direccion": validarDireccion(); break;
+            case "ciudad": validarCiudad(); break;
+            case "postal": validarPostal(); break;
+        }
+    });
+    input.addEventListener("focus", () => clearError(input));
+});
+
+nombreInput.addEventListener("input", () => {
+    titulo.textContent = `Hola ${nombreInput.value}`;
+});
+
+form.addEventListener("submit", e => {
+    e.preventDefault();
+    let valido = 
+        validarNombre() & 
+        validarEmail() & 
+        validarPassword() & 
+        validarDNI() & 
+        validarEdad() & 
+        validarTelefono() & 
+        validarDireccion() & 
+        validarCiudad() & 
+        validarPostal();
+    if (valido) {
+        form.submit();
+    } else {
+        alert("Hay errores en el formulario. Corríjalos antes de enviar.");
+    }
+});
