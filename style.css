@@ -160,6 +160,11 @@ input[type='submit']{
     transform: translateX(-50%) ;
     color: red;
 }
+.error-text {
+    font-size: 0.9em;
+    margin-top: 4px;
+}
+
 @media (max-width: 620px) {
 nav{
     justify-content: space-between;
